@@ -180,8 +180,10 @@ const test2 = [16, 6, 10, 5, 6, 1, 4];
 console.log(calcAverageHumanAge(test1));
 console.log(calcAverageHumanAge(test2));
 
-// const totalDepositUSD = movements
-//   .filter(mov => mov > 0)
-//   .map(mov => mov * eurToUsd)
-//   .reduce((acc, mov) => acc + mov, 0);
-// console.log(totalDepositUSD);
+const totalDepositUSD = movements
+  .filter(mov => mov > 0)
+  .map(mov => mov * eurToUsd)
+  .reduce((acc, mov) => acc + mov, 0);
+console.log(totalDepositUSD);
+
+const firstWithdrawal = movements.find(mov => mov < 0);
