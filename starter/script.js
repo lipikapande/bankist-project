@@ -186,4 +186,18 @@ const totalDepositUSD = movements
   .reduce((acc, mov) => acc + mov, 0);
 console.log(totalDepositUSD);
 
-const firstWithdrawal = movements.find(mov => mov < 0);
+let currentAccount;
+
+btnLogin.addEventListener('click', function (e) {
+  e.preventDefault();
+  console.log('LOGIN');
+  currentAccount = accounts.find(
+    acc => acc.username === inputLoginUsername.value
+  );
+  if (currentAccount?.pin === Number(inputLoginPin.value)) {
+    labelWelcome.textContent = `Welcome back, ${
+      currentAccount.owner.split(' ')[0]
+    }`;
+    containerApp.style.opacity = 100;
+  }
+});
